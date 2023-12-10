@@ -3,16 +3,16 @@ import ast
 class FunctionVisitor(ast.NodeVisitor):
     def __init__(self):
         self.function_name = ""
-        self.recurrence_equation = ""
+        self.recurrence_count = 0
         self.has_recursion = False
 
     def analyze_function(self, node):
         print(f"Analyzing function '{self.function_name}'")
-        self.recurrence_equation = ""
+        self.recurrence_count = 0
         self.has_recursion = False
         self.visit(node)
         if self.has_recursion:
-            print(f"T(n) = {self.recurrence_equation}")
+            print(f"T(n) = {self.recurrence_count}T(n-1)")
         else:
             print(f"The function '{self.function_name}' is not recursive.")
 
@@ -23,9 +23,7 @@ class FunctionVisitor(ast.NodeVisitor):
 
     def visit_Call(self, node):
         if isinstance(node.func, ast.Name):
-            if self.recurrence_equation:
-                self.recurrence_equation += " + "
-            self.recurrence_equation += "T(n - 1)"
+            self.recurrence_count += 1
             self.has_recursion = True
 
 def analyze_recurrence(file_path):
