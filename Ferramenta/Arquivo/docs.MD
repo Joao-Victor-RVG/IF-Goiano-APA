@@ -107,9 +107,10 @@ The `recorrencytest.py` file contains a `FunctionVisitor` class that uses the `a
 This document provides an overview of the project and guidance on how to use and understand the code in the `code.py` and `recorrencytest.py` files. Make sure to follow the usage instructions and adapt as needed to meet the specific requirements of your project.
 
 <br>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 <br>
-# Documentação do Projeto
+
 
 ## Introdução
 
